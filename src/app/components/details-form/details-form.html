@@ -1,0 +1,30 @@
+<!-- ########################################################################### FORM FOR INSERTING COUNTRY AND ZIPCODE -->
+<form name="weatherForm" ng-submit="$ctrl.getWeatherManually()" ng-hide="$ctrl.geolocationEnabled()">
+    <div class="row">
+
+        <!-- I'm not checking for validity of these since I believe that would be out of scope of this assignment -->
+        <!-- I have tried https://github.com/rsertelon/iso-3166-country-codes-angular, however weather api doesn't support standard codes such as GB for uk -->
+
+        <!-- ##################################### ZIP CODE -->
+        <div class="large-6 columns">
+            <label>Zip code
+                <input type="text" name="zipcode" ng-model="$ctrl.formData.zipcode" placeholder="Zip code" required>
+            </label>
+            <span ng-show="weatherForm.zipcode.$error.required" class="form-error">This field is required</span>
+        </div><!-- large-6 columns -->
+
+        <!-- ##################################### COUNTRY CODE -->
+        <div class="large-6 columns">
+            <label>Country code
+                <input type="text" name="countryCode" ng-model="$ctrl.formData.countryCode" placeholder="Country code" required>
+            </label>
+            <span ng-show="weatherForm.countryCode.$error.required" class="form-error">This field is required</span>
+        </div><!-- large-6 columns -->
+
+        <!-- ##################################### SUBMIT -->
+        <div class="large-12 columns">
+            <button type="submit" ng-disabled="weatherForm.$invalid" name="weatherFormSubmit" class="button">Show me weather</button>
+        </div><!-- large-12 columns -->
+
+    </div><!-- row -->
+</form>
