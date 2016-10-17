@@ -1,0 +1,49 @@
+// CSS related to angular-ec-callout (doesn't use BEM)
+.close-button {
+    position: absolute;
+    color: #8a8a8a;
+    right: 10px;
+    top: 6px;
+    font-size: 2em;
+    line-height: 1;
+    cursor: pointer;
+}
+
+.callout {
+    border: 1px solid $color-light-gray;
+    padding: 10px;
+    position: relative;
+    margin-bottom: 20px;
+
+    img {
+        height: 18px;
+        display: inline-block;
+        margin: 0 5px -3px 0;
+    }
+
+    p {
+        margin-bottom: 0;
+        padding-right: 20px;
+    }
+}
+
+.callout {
+  transition: .5s linear all;
+  -webkit-transition: .5s linear all;
+}
+
+.callout.ng-enter {
+  opacity: 0;
+}
+
+.callout.ng-enter.ng-enter-active {
+  opacity: 1;
+}
+
+.callout.ng-leave {
+  opacity: 1;
+}
+
+.callout.ng-leave.ng-leave-active {
+  opacity: 0;
+}

@@ -10,7 +10,7 @@ export default ngModule => {
          * @param {Object} $http
          * @param {Object} WEATHER_CONFIG
          */
-        constructor($http, WEATHER_CONFIG) {
+        constructor($http, WEATHER_CONFIG, ecCalloutService) {
 
             /**
              * @typedef {Object} weatherData
@@ -25,6 +25,7 @@ export default ngModule => {
 
             this.$http = $http;
             this.WEATHER_CONFIG = WEATHER_CONFIG;
+            this.CalloutService = ecCalloutService;
         }
 
         /**
@@ -82,11 +83,13 @@ export default ngModule => {
                         // Disable geolocation in order for the manual form to be displayed
                         this.disableGeolocation();
 
-                        /*CalloutService.notify({
+                        // Send notification about failure
+                        this.CalloutService.notify({
                             type: 'alert',
                             message: response.data.message,
-                            img: 'https://cdnjs.cloudflare.com/ajax/libs/foundicons/3.0.0/svgs/fi-alert.svg'
-                        });*/
+                            img: 'https://cdnjs.cloudflare.com/ajax/libs/foundicons/3.0.0/svgs/fi-alert.svg',
+                            timeout: 4000
+                        });
 
                     // Otherwise, if it's cod: "200", we have successful response and can handle the data
                     } else {
@@ -95,12 +98,12 @@ export default ngModule => {
                         this.setWeatherData(response.data);
 
                         // Send a notification about success
-                        /*CalloutService.notify({
+                        this.CalloutService.notify({
                             type: 'success',
                             message: 'Weather data successfully fetched',
                             img: 'https://cdnjs.cloudflare.com/ajax/libs/foundicons/3.0.0/svgs/fi-check.svg',
                             timeout: 2000
-                        });*/
+                        });
 
                     }
 
@@ -118,8 +121,16 @@ export default ngModule => {
 
         }
 
-        disableGeolocation() {
+        disableGeolocation(error = 'There was an error while retrieving your location, please provide details to display weather') {
             this.weatherData.geolocationEnabled = false;
+
+            // Notify
+            this.CalloutService.notify({
+                type: 'alert',
+                message: error,
+                img: 'https://cdnjs.cloudflare.com/ajax/libs/foundicons/3.0.0/svgs/fi-alert.svg',
+                timeout: 4000
+            });
         }
 
     };

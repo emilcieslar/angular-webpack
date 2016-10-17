@@ -1,6 +1,8 @@
 // Import JS dependencies
 import angular from 'angular';
 import geolocation from 'angularjs-geolocation';
+import ngAnimate from 'angular-animate';
+import angularEcCallout from 'angular-ec-callout';
 
 // Import styling
 import '../scss/main.scss';
@@ -29,7 +31,7 @@ class AppCtrl {
              * is disabled
              */
             function rejected(error) {
-                WeatherService.disableGeolocation();
+                WeatherService.disableGeolocation(error);
             }
 
         );
@@ -51,7 +53,7 @@ const AppComponent = {
 }
 
 /** Instantiate the angular module and add the main component */
-const weatherAppModule = angular.module('weatherApp', ['geolocation'])
+const weatherAppModule = angular.module('weatherApp', ['geolocation', 'angular-ec-callout', 'ngAnimate'])
     .component('app', AppComponent);
 
 // Require other components
