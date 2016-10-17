@@ -100,7 +100,7 @@ module.exports = function makeWebpackConfig () {
       //
       // Reference: https://github.com/webpack/style-loader
       // Use style-loader in development.
-      loader: isTest ? 'null' : ExtractTextPlugin.extract('style-loader', ['css-loader', 'postcss-loader', 'sass-loader?sourceMap'])
+      loader: isTest ? 'null' : ExtractTextPlugin.extract('style-loader', ['css-loader', 'postcss-loader', 'resolve-url-loader', 'sass-loader?sourceMap'])
     }, {
       // ASSET LOADER
       // Reference: https://github.com/webpack/file-loader

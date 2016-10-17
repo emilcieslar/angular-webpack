@@ -1,30 +1,21 @@
 <!-- ########################################################################### FORM FOR INSERTING COUNTRY AND ZIPCODE -->
-<form name="weatherForm" ng-submit="$ctrl.getWeatherManually()" ng-hide="$ctrl.geolocationEnabled()">
-    <div class="row">
+<form class="c-form" name="weatherForm" ng-submit="$ctrl.getWeatherManually()" ng-hide="$ctrl.hideWeatherForm()">
 
         <!-- I'm not checking for validity of these since I believe that would be out of scope of this assignment -->
         <!-- I have tried https://github.com/rsertelon/iso-3166-country-codes-angular, however weather api doesn't support standard codes such as GB for uk -->
 
         <!-- ##################################### ZIP CODE -->
-        <div class="large-6 columns">
-            <label>Zip code
-                <input type="text" name="zipcode" ng-model="$ctrl.formData.zipcode" placeholder="Zip code" required>
-            </label>
-            <span ng-show="weatherForm.zipcode.$error.required" class="form-error">This field is required</span>
-        </div><!-- large-6 columns -->
+        <label class="c-form__label">Zip code
+            <input class="c-form__input" type="text" name="zip" ng-model="$ctrl.formData.zip" placeholder="Zip code" required>
+        </label>
+        <span ng-show="weatherForm.zip.$error.required" class="c-form__error">This field is required</span>
 
         <!-- ##################################### COUNTRY CODE -->
-        <div class="large-6 columns">
-            <label>Country code
-                <input type="text" name="countryCode" ng-model="$ctrl.formData.countryCode" placeholder="Country code" required>
-            </label>
-            <span ng-show="weatherForm.countryCode.$error.required" class="form-error">This field is required</span>
-        </div><!-- large-6 columns -->
+        <label class="c-form__label">Country code
+            <input class="c-form__input" type="text" name="country" ng-model="$ctrl.formData.country" placeholder="Country code" required>
+        </label>
+        <span ng-show="weatherForm.country.$error.required" class="c-form__error">This field is required</span>
 
         <!-- ##################################### SUBMIT -->
-        <div class="large-12 columns">
-            <button type="submit" ng-disabled="weatherForm.$invalid" name="weatherFormSubmit" class="button">Show me weather</button>
-        </div><!-- large-12 columns -->
-
-    </div><!-- row -->
+        <button type="submit" ng-disabled="weatherForm.$invalid" name="weatherFormSubmit" class="c-button c-button--wide c-button--top c-button--success">Show me weather</button>
 </form>

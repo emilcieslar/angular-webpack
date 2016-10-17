@@ -5,16 +5,22 @@ export default ngModule => {
         constructor(WeatherService) {
 
             this.formData = {
-                zipcode: '',
-                countryCode: '',
+                zip: '',
+                country: '',
             }
 
-            this.geolocationEnabled = () => WeatherService.getWeatherData().geolocationEnabled;
+            // Hide the details form when:
+            // - Weather data are available
+            // Show the details form when:
+            // - User or system disabled geolocation, but weather data are still not available
+            this.hideWeatherForm = () => WeatherService.getWeatherData().weather || WeatherService.getWeatherData().geolocationEnabled;
+
+            this.WeatherService = WeatherService;
 
         }
 
         getWeatherManually() {
-            console.log('getting weather..');
+            this.WeatherService.getWeather(this.formData);
         }
 
     };

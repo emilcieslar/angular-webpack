@@ -2,7 +2,9 @@ export default ngModule => {
 
     class WeatherCtrl {
 
-        constructor() {
+        constructor(WeatherService) {
+
+            this.weatherData = WeatherService.getWeatherData();
 
         }
 

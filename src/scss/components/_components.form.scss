@@ -1,0 +1,24 @@
+.c-form {
+    text-align: left;
+}
+
+    .c-form__label {
+        display: block;
+        font-size: inuit-rem(16px);
+        margin-top: 15px;
+    }
+
+    .c-form__input {
+        display: block;
+        width: 100%;
+        padding: 6px 8px;
+        font-size: inuit-rem(16px);
+    }
+
+    .c-form__error {
+        font-size: inuit-rem(14px);
+        color: $color-alert;
+        width: 100%;
+        display: block;
+        margin-top: 5px;
+    }

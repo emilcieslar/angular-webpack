@@ -1,0 +1,18 @@
+.c-app {
+    width: 90%;
+    margin: 50px auto;
+    text-align: center;
+
+    // Set media queries for tablet and desktop
+    @include mq($from: tablet) {
+        width: 70%;
+    }
+    
+    @include mq($from: desktop) {
+        width: 30%;
+    }
+}
+
+    .c-app__footer {
+        margin-top: 40px;
+    }

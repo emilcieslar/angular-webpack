@@ -1,55 +1,51 @@
-<!-- ##################################### City name -->
-<h2 class="text-center">{{weatherData.name}}</h2>
+<div class="c-weather__loader" ng-hide="$ctrl.weatherData.weather || !$ctrl.weatherData.geolocationEnabled"></div>
 
-<!-- ##################################### A list of weather icons -->
-<div class="row">
-    <div class="large-12 columns text-center">
+<div ng-show="$ctrl.weatherData.weather">
 
-        <!-- Weather icons if there are more than one because weather api returns an array -->
-        <div class="weather-icons" ng-repeat="item in weatherData.weather track by $index">
+    <!-- ##################################### City name -->
+    <h2 class="c-weather__city">{{$ctrl.weatherData.name}}</h2>
+
+    <!-- ##################################### A list of weather icons -->
+    <!-- Weather icons if there are more than one because weather api returns an array -->
+    <ul class="c-weather__icons">
+        <li ng-repeat="item in $ctrl.weatherData.weather track by $index">
 
             <i class="wi" ng-class="'wi-owm-'+item.id"></i>
             <span >{{item.main}}</span>
 
-        </div><!-- weather icons -->
+        </li><!-- weather icons -->
+    </ul>
 
-    </div><!-- large-12 columns -->
-</div><!-- row -->
+    <!-- ##################################### Common information about weather -->
+    <table class="c-weather__table">
+        <tbody>
 
-<!-- ##################################### Common information about weather -->
-<div class="row">
-    <div class="large-12 columns">
+            <tr>
+                <th>Wind</th>
+                <td>{{$ctrl.weatherData.wind.speed}} m/s</td>
+            </tr>
 
-        <table>
-            <tbody>
+            <tr>
+                <th>Cloudiness</th>
+                <td>{{$ctrl.weatherData.clouds.all}} %</td>
+            </tr>
 
-                <tr>
-                    <th>Wind</th>
-                    <td>{{weatherData.wind.speed}} m/s</td>
-                </tr>
+            <tr>
+                <th>Pressure</th>
+                <td>{{$ctrl.weatherData.main.pressure}} hpa</td>
+            </tr>
 
-                <tr>
-                    <th>Cloudiness</th>
-                    <td>{{weatherData.clouds.all}} %</td>
-                </tr>
+            <tr>
+                <th>Humidity</th>
+                <td>{{$ctrl.weatherData.main.humidity}} %</td>
+            </tr>
 
-                <tr>
-                    <th>Pressure</th>
-                    <td>{{weatherData.main.pressure}} hpa</td>
-                </tr>
+            <tr>
+                <th>Temperature</th>
+                <td>{{$ctrl.weatherData.main.temp}} &#8451;</td>
+            </tr>
 
-                <tr>
-                    <th>Humidity</th>
-                    <td>{{weatherData.main.humidity}} %</td>
-                </tr>
+        </tbody>
+    </table>
 
-                <tr>
-                    <th>Temperature</th>
-                    <td>{{weatherData.main.temp}} &#8451;</td>
-                </tr>
-
-            </tbody>
-        </table>
-
-    </div><!-- large-12 columns -->
-</div><!-- row -->
+</div>

@@ -1,0 +1,37 @@
+$wi-path: 'components/weather-icons/font'; // Set default path for weather icons font files
+@import 'weather-icons/weather-icons'; // Import weather icons
+
+$c-weather-table-tr-bg: #f1f1f1;
+
+.c-weather {
+
+}
+
+    .c-weather__loader {
+        height: 120px;
+        background: url('/img/loader.gif') center center no-repeat;
+        width: 100%;
+    }
+
+    .c-weather__city {
+        margin-bottom: 0;
+    }
+
+    .c-weather__icons {
+        list-style: none;
+        margin: 0 0 20px 0;
+        padding: 0;
+        font-size: inuit-rem($inuit-font-size-h2);
+    }
+
+    .c-weather__table {
+
+        td {
+            padding: 10px;
+        }
+
+        tr:nth-child(even) {
+            background: $c-weather-table-tr-bg;
+        }
+
+    }

@@ -2,8 +2,8 @@
 import angular from 'angular';
 import geolocation from 'angularjs-geolocation';
 
-// Import generic styling
-import '../scss/app.scss';
+// Import styling
+import '../scss/main.scss';
 
 /**
  * Application Main Controller
@@ -12,16 +12,24 @@ class AppCtrl {
 
     constructor(geolocation, WeatherService) {
 
+        // Try to get user's geolocation using HTML5 geolocation
         geolocation.getLocation().then(
 
+            /**
+             * In case user allows geoloc and it succeeeds finding the
+             * locadtion, get weather data immediately
+             */
             function fulfilled(data) {
                 WeatherService.getWeather(data.coords);
-                console.log('first');
             },
 
+            /**
+             * In case user disables geolocation or it won't succeed
+             * finding location, let WeatherService know that geolocation
+             * is disabled
+             */
             function rejected(error) {
                 WeatherService.disableGeolocation();
-                console.log('second');
             }
 
         );

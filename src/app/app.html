@@ -1,22 +1,26 @@
-<main>
+<div class="c-app">
 
-    <h1 class="text-center">Weather App</h1>
+    <main>
 
-    <!-- ##################################### Reusable notification service for displaying messages -->
-    <!-- ##################################### This is an example of Observer pattern -->
-    <!-- ##################################### Get more info on https://github.com/emilcieslar/angular-ec-callout -->
-    <ec-callout></ec-callout>
+        <h1 class="text-center">Weather App</h1>
 
-    <!-- #################################### Form for entering city and zip (shows when geolocation is disabled) -->
-    <details-form></details-form>
+        <!-- ##################################### Reusable notification service for displaying messages -->
+        <!-- ##################################### This is an example of Observer pattern -->
+        <!-- ##################################### Get more info on https://github.com/emilcieslar/angular-ec-callout -->
+        <ec-callout></ec-callout>
 
-    <!-- #################################### Weather component -->
-    <weather></weather>
+        <!-- #################################### Form for entering city and zip (shows when geolocation is disabled) -->
+        <details-form></details-form>
 
-</main>
+        <!-- #################################### Weather component -->
+        <weather></weather>
 
-<footer>
+    </main>
 
-    <a ng-href="{{app.url}}">Copyright &copy; Emil Cieslar 2016</a>
+    <footer class="c-app__footer">
 
-</footer>
+        <a ng-href="{{app.url}}">Copyright &copy; Emil Cieslar 2016</a>
+
+    </footer>
+
+</div>

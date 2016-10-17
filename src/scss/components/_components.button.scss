@@ -1,0 +1,39 @@
+.c-button {
+    display: inline-block;
+    text-align: center;
+    outline: none;
+    padding: 10px 8px;
+    cursor: pointer;
+    border: none;
+    background: $color-primary;
+    color: $color-white;
+    transition: all .3s;
+
+    &:hover:not([disabled]),
+    &:focus:not([disabled]) {
+        background: darken($color-primary, 10);
+    }
+
+    &[disabled] {
+        opacity: .25;
+        cursor: not-allowed;
+    }
+}
+
+.c-button--success {
+    background: $color-success;
+    color: $color-white;
+
+    &:hover:not([disabled]),
+    &:focus:not([disabled]) {
+        background: darken($color-success, 10);
+    }
+}
+
+.c-button--wide {
+    width: 100%;
+}
+
+.c-button--top {
+    margin-top: 20px;
+}
