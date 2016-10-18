@@ -16,6 +16,8 @@ You can find example at [weather.emmil.cz](https://weather.emmil.cz).
 
 * The project uses some parts of [Harry Roberts' Inuitcss framework](https://github.com/inuitcss/inuitcss).
 
+* The project uses Observer pattern, which can be seen on [angular-ec-callout npm package](https://www.npmjs.com/package/angular-ec-callout) (my own project)
+
 
 ## Quick start
 
