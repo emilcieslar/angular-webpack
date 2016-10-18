@@ -10,6 +10,8 @@ export default ngModule => {
 
     }
 
+    WeatherCtrl.$inject = ['WeatherService'];
+
     const weatherComponent = {
 
         template: require('./weather.html'),

@@ -40,6 +40,9 @@ class AppCtrl {
 
 }
 
+AppCtrl.$inject = ['geolocation', 'WeatherService'];
+
+
 /**
  * Application Main Component
  * This wraps around the whole app

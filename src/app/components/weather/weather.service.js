@@ -71,8 +71,6 @@ export default ngModule => {
 
                 function fulfilled(response) {
 
-                    console.log(response.data);
-
                     // Check for response.data.cod property
                     // If it's not 200, the response is not successful
                     // This happens when API's response status is 200 (which is basically
@@ -134,6 +132,8 @@ export default ngModule => {
         }
 
     };
+
+    WeatherService.$inject = ['$http', 'WEATHER_CONFIG', 'ecCalloutService'];
 
     ngModule.service('WeatherService', WeatherService);
 

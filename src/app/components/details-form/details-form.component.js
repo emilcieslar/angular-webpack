@@ -25,6 +25,8 @@ export default ngModule => {
 
     };
 
+    DetailsFormCtrl.$inject = ['WeatherService'];
+
     const detailsForm = {
 
         template: require('./details-form.html'),
