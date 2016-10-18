@@ -79,15 +79,7 @@ export default ngModule => {
                     if(response.data.cod != 200) {
 
                         // Disable geolocation in order for the manual form to be displayed
-                        this.disableGeolocation();
-
-                        // Send notification about failure
-                        this.CalloutService.notify({
-                            type: 'alert',
-                            message: response.data.message,
-                            img: 'https://cdnjs.cloudflare.com/ajax/libs/foundicons/3.0.0/svgs/fi-alert.svg',
-                            timeout: 4000
-                        });
+                        this.disableGeolocation(response.data.message);
 
                     // Otherwise, if it's cod: "200", we have successful response and can handle the data
                     } else {
